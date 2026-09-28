@@ -1,0 +1,44 @@
+# Skill: MK1
+
+> A Grok skill for high-speed cloud safety monitoring: attack status, red-light checks, and attack-score density plots. Simulation or real data you provide.
+
+## Purpose
+Explain MK1 as a watch light for cloud safety, not as a weapon. Source: fitzyracing1/skill-mk1.
+
+## How it works (plain English)
+1. Take sim data or monitoring output you already have.
+2. Score how dense the attack signals look.
+3. Show a red light if the score is high.
+4. Optionally plot the density.
+
+## Key ideas
+- Red light (a simple danger flag)
+- Attack score density (how packed the warning numbers are)
+- Provided data (the skill does not break into a cloud; you bring the numbers)
+
+## The actual code
+```
+# source: fitzyracing1/skill-mk1
+scores = ingest(sim_or_provided)
+density = plot(scores)
+red_light = density_high(scores)
+```
+
+## Line-by-line translation
+1. ingest(...) → “take the numbers you already have”
+2. plot(scores) → “draw how packed they are”
+3. red_light = ... → “turn on the flag if packed and high”
+
+## Decisions the program makes
+- If scores are low → no red light
+- If scores are dense and high → red light
+- If no data is provided → run the sim path only
+
+## What a person would notice
+A watch light and a plot, not a how-to for attacks.
+
+## Current status
+Barrage clone.
+
+## Next possible steps
+Open the HTML skill and drop in one score list or run the sim.
